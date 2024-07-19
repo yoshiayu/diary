@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js研修</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="https://unpkg.com/vue@3.2.31"></script>
+</head>
+<body>
+	<header><a href="/">目次へ</a></header>
+	<div id="app">
+		<form @submit.prevent="submitForm()">
+			<dl>
+				<dt>お名前</dt>
+				<dd><input type="text" v-model="form.name"></dd>
+				<dt>生年月日</dt>
+				<dd><input type="date" v-model="form.birthday"></dd>
+				<dt>性別</dt>
+				<dd>
+					<input type="radio" v-model="form.gender" value="male">男性
+					<input type="radio" v-model="form.gender" value="female">女性
+					<input type="radio" v-model="form.gender" value="other">その他
+				</dd>       
+				<dt>血液型</dt>
+				<dd>
+					<select v-model="form.bloodType">
+						<option value=""></option>
+						<option value="a">A型</option>
+						<option value="b">B型</option>
+						<option value="o">O型</option>
+						<option value="ab">AB型</option>
+					</select>
+				</dd>
+				<dt>趣味</dt>
+				<dd>
+					<template v-for="(hobby, key) in hobbies" :key="key">
+					<input type="checkbox" v-model="form.hobby" :value="key">
+						{{ hobby }}
+					</template> 
+				</dd>        
+				<dt>メッセージ</dt>
+				<dd><textarea v-model="form.message"></textarea></dd>
+			</dl>
+	  	</form>
+	  	<hr>
+	  	{{ form }}
+	</div>
+  <script src="main.js"></script>
+</body>
+</html>

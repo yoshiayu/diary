@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js研修</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="https://unpkg.com/vue@3.2.31"></script>
+</head>
+<body>
+	<header><a href="/">目次へ</a></header>
+	<div id="app">
+    	<div>
+			半径：
+			<input type="number" v-model="radius"> cm
+		</div>
+		<div>円周：{{ circumference }} cm</div>
+		<div>面積：{{ circleArea }} 平方cm</div>
+	</div>
+  <script src="main.js"></script>
+</body>
+</html>

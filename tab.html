@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js研修</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="https://unpkg.com/vue@3.2.31"></script>
+</head>
+<body>
+	<header><a href="/">目次へ</a></header>
+	<div id="app">
+		<ul class="tab-menu">
+			<li
+				v-for="tab in tabs" :key="tab.name"
+				:class="{active: activeTab === tab.name}"
+				@click="activeTab = tab.name"
+			>{{ tab.text }}</li>
+		</ul>
+		<div class="tab-content">
+			<div v-if="activeTab === 'tabs-1'">
+				<p>タブ1の内容</p>
+			</div>
+			<div v-if="activeTab === 'tabs-2'">
+				<p>タブ2の内容</p>
+			</div>
+			<div v-if="activeTab === 'tabs-3'">
+				<p>タブ3の内容</p>
+			</div>
+		</div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js研修</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="https://unpkg.com/vue@3.2.31"></script>
+</head>
+<body>
+	<header><a href="/">目次へ</a></header>
+	<div id="app">
+		<div>
+			<button 
+				v-for="(value, key) in hands" 
+				:key="key"
+				@click="doJanken(key)"
+			>{{ value }}</button>
+		</div>
+		<div v-if="you != null">
+			<p>あなたは{{ hands[you] }}、わたしは{{ hands[com] }}</p>
+			<div 
+				v-if="you==0 && com==1 || you==1 && com==2 || you==2 && com==0"
+			>あなたの勝ちです</div>
+			<div v-else-if="you==com">あいこです</div>
+			<div v-else>あなたの負けです</div>
+		</div>
+	</div>
+  <script src="main.js"></script>
+</body>
+</html>
